@@ -1,0 +1,1 @@
+**不是提供给 AI 的文档，AI 入口为 [AGENTS.md](./AGENTS.md)**
