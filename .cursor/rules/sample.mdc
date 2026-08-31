@@ -1,0 +1,9 @@
+---
+description: React 组件约定
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+- 使用 named export，不用 default export
+- 样式用 Tailwind，不写内联 style
+- 组件超过 200 行就拆分子组件
