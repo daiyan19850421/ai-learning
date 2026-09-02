@@ -1,5 +1,5 @@
 ---
-description: React 组件约定
+description: React 组件约定（样例，非真实 rule）
 globs: src/components/**/*.tsx
 alwaysApply: false
 ---

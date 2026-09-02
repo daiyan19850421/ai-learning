@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: kb-rag-spring-pgvector
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rag
+    username: rag
+    password: rag_dev_only
+  ai:
+    openai:
+      api-key: ${SPRING_AI_OPENAI_API_KEY:}
+      base-url: ${SPRING_AI_OPENAI_BASE_URL:https://api.openai.com}
+      chat:
+        options:
+          model: ${SPRING_AI_OPENAI_CHAT_MODEL:gpt-4o-mini}
+      embedding:
+        options:
+          model: ${SPRING_AI_OPENAI_EMBEDDING_MODEL:text-embedding-3-small}
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536
+        initialize-schema: true
+
+rag:
+  corpus-dir: docs/corpus
+  chunk-size: 800
+  chunk-overlap: 100
+  top-k: 4
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
